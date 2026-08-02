@@ -12,6 +12,18 @@ long long sum_to_n(int n) {
     return total;
 }
 
+/* 计算 n!；n < 0 返回 -1，0! = 1 */
+long long factorial(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    long long result = 1;
+    for (int i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
 int main(void) {
     int n;
 
@@ -22,5 +34,6 @@ int main(void) {
     }
 
     printf("1 到 %d 的和是: %lld\n", n, sum_to_n(n));
+    printf("%d 的阶乘是: %lld\n", n, factorial(n));
     return 0;
 }
