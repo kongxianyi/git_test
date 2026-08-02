@@ -1,9 +1,20 @@
 # git_test
 用于练习git等命令的项目
 
+## 全局配置
+- 在终端/Git bash中设置用户名和邮箱，这样提交会保存记录
+    1. git config --global user.name "你的用户名"
+    2. git config --global user.email "你的邮箱"
+
+## 初始化
+- 进入项目目录，初始化本地仓库git init, 生成一个.git的隐藏文件夹，版本数据都在这里
+- 关联远程仓库：git remote add origin https://github.com/你的用户名/仓库名.git
+    1. origin：远程仓库(URL)的别称，方便操作
+- 查看本地与远程是否关联成功：git remote -v
+
 ## 暂存和提交
-- 暂存：git add .
-- 提交：git commit -m "修改内容"
+- 暂存区：[git add .] : 将当前目录所有的文件保存到暂存区 (已暂存)
+- 本地仓库：[git commit -m "修改内容"] : 将暂存区的改动提交到本地仓库，生成一个唯一的版本号commit ID （已提交）
 
 ## 查看分支
 - git branch: 查看本地分支
@@ -15,6 +26,7 @@
     功能：拉取远程的 [远程分支名]，并将其合并到本地的 [本地分支名]；如果省略 :[本地分支名]，默认合并到你当前所在的分支。
 - 拉取：git fetch [选项] [远程别名] [远程分支名]:[本地远程跟踪分支名]
     功能：fetch 是把远程代码下载并存储到本地的远程跟踪引用中（只修改 .git 文件夹，不改动工作区）
+    git fetch origin: 将远程所有的最新分支更新至本地分支对应的远程跟踪指针（origin/main, origin/dev），但不会更新本地的main，dev的指针。即本地分支的跟踪是最新的远程指针。
     两种区别：
         fetch: 仅下载并更新;
         pull:  下载并合并 
